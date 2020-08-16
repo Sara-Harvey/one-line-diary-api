@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2020_08_16_184456) do
   create_table "entries", force: :cascade do |t|
     t.date "date"
     t.string "content"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,14 +28,6 @@ ActiveRecord::Schema.define(version: 2020_08_16_184456) do
 
   create_table "types", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
