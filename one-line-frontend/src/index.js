@@ -8,6 +8,16 @@ function fetchEntries() {
 }
 
 function renderEntries(json) {
+  const main = document.getElementById('main')
+  json.forEach(entry => {
+    var para = document.createElement('P')
+    para.innerHTML = `${entry.content}`
+    main.appendChild(para)
+  })
+}
+
+/*
+function renderEntries(json) {
   const main = document.querySelector('main')
   json.forEach(entry => {
     const h2 = document.createElement('h2')
@@ -15,6 +25,7 @@ function renderEntries(json) {
     main.appendChild(h2)
   })
 }
+*/
 
 document.addEventListener('DOMContentLoaded', function() {
   fetchEntries()
