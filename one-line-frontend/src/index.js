@@ -11,21 +11,10 @@ function renderEntries(json) {
   const main = document.getElementById('main')
   json.forEach(entry => {
     var para = document.createElement('P')
-    para.innerHTML = `${entry.content}`
+    para.innerHTML = `${entry.date} — ${entry.content}`
     main.appendChild(para)
   })
 }
-
-/*
-function renderEntries(json) {
-  const main = document.querySelector('main')
-  json.forEach(entry => {
-    const h2 = document.createElement('h2')
-    h2.innerHTML = `<h2>${entry.content}</h2>`
-    main.appendChild(h2)
-  })
-}
-*/
 
 document.addEventListener('DOMContentLoaded', function() {
   fetchEntries()
