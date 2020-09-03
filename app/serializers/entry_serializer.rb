@@ -1,4 +1,4 @@
 class EntrySerializer < ActiveModel::Serializer
-  has_many :types
-  attributes :id, :date, :content  
+  belongs_to :type
+  attributes :type_id, :date, :content  
 end

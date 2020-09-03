@@ -1,6 +1,5 @@
 class TypeSerializer < ActiveModel::Serializer
-  belongs_to :entry
+  has_many :entries
 
-  attributes :id, :entry_id, :name
-  #has_many :entries
+  attributes :name
 end

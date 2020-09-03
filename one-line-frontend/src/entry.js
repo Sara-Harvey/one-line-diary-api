@@ -7,7 +7,7 @@ entryFormFields shows up in newEntryForm */
 const entryFormFields = `
     <input type="hidden" id="entryId">
     <input type="text" id="date" placeholder="Date"/>
-    <input type="text" id="content"  placeholder="To remember"/>`
+    <input type="text" id="content"  placeholder="What to remember"/>`
 
 class Entry {
     constructor(data) {
@@ -148,6 +148,7 @@ function clearEntriesHtml() {
     let entriesIndex = document.getElementById("entries-list")
     entriesIndex.innerHTML = ''
 }
+
 
 Entry.prototype.entryHtml = function () {
      

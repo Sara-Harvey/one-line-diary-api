@@ -1,2 +1,0 @@
-class EntryTypesController < ApplicationController
-end
