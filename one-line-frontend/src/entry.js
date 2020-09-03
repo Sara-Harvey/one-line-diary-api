@@ -7,13 +7,16 @@ entryFormFields shows up in newEntryForm */
 const entryFormFields = `
     <input type="hidden" id="entryId">
     <input type="text" id="date" placeholder="Date"/>
-    <input type="text" id="content"  placeholder="What to remember"/>`
+    <input type="text" id="content"  placeholder="What to remember"/>
+    <input type="integer" id="type_id"  placeholder="Type"/>
+    `
 
 class Entry {
     constructor(data) {
         this.id = data.id
         this.date = data.date 
         this.content = data.content
+        this.type_id = data.type_id
     }
     
 /* newEntryForm fires when HTML page loads (index.js)
@@ -28,8 +31,8 @@ function calls, can't be modified outside of function */
         newEntryFormDiv.innerHTML = 
         `<form onsubmit="createEntry(); return false;">` + 
         entryFormFields + 
-        `<input type="submit" value="Add new entry" 
-        style="color: white; background-color: peru">
+        `<input type="submit" value="Add new" 
+        style="font-family: Caslon; color: white; font-weight: bold; background-color: peru">
         </form>
         <br/>`
     }
@@ -39,7 +42,7 @@ function calls, can't be modified outside of function */
         editEntryFormDiv.innerHTML = `
         <form onsubmit="updateEntry(); return false;">` + 
         entryFormFields + 
-        `<input type="submit" value="Update info">
+        `<input type="submit" value="Update">
         </form>
         <br/>`
     }
@@ -62,6 +65,7 @@ function createEntry() {
     const entry = {
         date: document.getElementById('date').value,
         content: document.getElementById('content').value,
+        type: document.getElementById('type_id').value,
     }
 
     fetch("http://localhost:3000/entries", {
@@ -88,6 +92,7 @@ function updateEntry() {
     const entry = {
         date: document.getElementById('date').value,
         content: document.getElementById('content').value,
+        type: document.getElementById('type_id').value
     }
 
     fetch(`http://localhost:3000/entries/${entryId}`, {
@@ -116,6 +121,7 @@ function editEntry() {
             entryForm.querySelector('#entryId').value = data.id 
             entryForm.querySelector('#date').value = data.date 
             entryForm.querySelector('#content').value = data.content 
+            entryForm.querySelector('#typeId').value = data.type_id 
         })
 }
 

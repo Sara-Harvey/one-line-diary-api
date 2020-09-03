@@ -35,7 +35,7 @@ before_action :find_entry, only: [:show, :edit, :update, :destroy]
     private
 
       def entry_params
-        params.permit(:date, :content)
+        params.permit(:date, :content, :type_id)
       end
 
 # necessary @
