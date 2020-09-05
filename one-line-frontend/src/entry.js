@@ -8,15 +8,17 @@ const entryFormFields = `
     <input type="hidden" id="entryId">
     <input type="text" id="date" placeholder="Date"/>
     <input type="text" id="content"  placeholder="What to remember"/>
-    <input type="integer" id="type_id"  placeholder="Type"/>
     `
+//<input type="integer" id="typeId"  placeholder="Type"/>
 
 class Entry {
     constructor(data) {
         this.id = data.id
         this.date = data.date 
         this.content = data.content
-        this.type_id = data.type_id
+
+        this.types = data.types
+        //this.type_id = data.type_id
     }
     
 /* newEntryForm fires when HTML page loads (index.js)
@@ -32,7 +34,7 @@ function calls, can't be modified outside of function */
         `<form onsubmit="createEntry(); return false;">` + 
         entryFormFields + 
         `<input type="submit" value="Add new" 
-        style="font-family: Caslon; color: white; font-weight: bold; background-color: peru">
+        style="font-family: Caslon; color: white; font-weight: bold; background-color: #bc6c25">
         </form>
         <br/>`
     }
@@ -65,7 +67,7 @@ function createEntry() {
     const entry = {
         date: document.getElementById('date').value,
         content: document.getElementById('content').value,
-        type: document.getElementById('type_id').value,
+        //type: document.getElementById('typeId').value,
     }
 
     fetch("http://localhost:3000/entries", {
@@ -92,7 +94,7 @@ function updateEntry() {
     const entry = {
         date: document.getElementById('date').value,
         content: document.getElementById('content').value,
-        type: document.getElementById('type_id').value
+        //type: document.getElementById('typeId').value
     }
 
     fetch(`http://localhost:3000/entries/${entryId}`, {
@@ -121,7 +123,7 @@ function editEntry() {
             entryForm.querySelector('#entryId').value = data.id 
             entryForm.querySelector('#date').value = data.date 
             entryForm.querySelector('#content').value = data.content 
-            entryForm.querySelector('#typeId').value = data.type_id 
+            //entryForm.querySelector('#typeId').value = data.type_id 
         })
 }
 
@@ -165,12 +167,12 @@ Entry.prototype.entryHtml = function () {
             </br></br>
             
                 <button class="edit-entry-button" style="color: white; 
-                background-color: #D4AB7F; font-family: Baskerville; 
+                background-color: #d8b58d; font-family: Baskerville; 
                 font-weight: bold; border: none; border-radius: 5px">
                 Edit</button>  
 
                 <button class="delete-entry-button" style="color: white; 
-                background-color: #D4AB7F; font-family: Baskerville; 
+                background-color: #d8b58d; font-family: Baskerville; 
                 font-weight: bold; border: none; border-radius: 5px">
                 Delete</button>
 

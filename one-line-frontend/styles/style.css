@@ -27,7 +27,7 @@ body {
     padding-bottom: 30px;
   } */
   
-   .container {
+  .container {
 	font-family: Caslon;
    }
 
@@ -40,8 +40,8 @@ body {
   }
 
   div.card {
-    background-color: #faf0e6;
-    box-shadow: 10px 5px #D4AB7F;
+    background-color: #fff5eb;
+    box-shadow: 10px 5px #e0c3a4;
     padding: 10px 10px 10px 30px;
     border-radius: 5px;
     margin: 20px;

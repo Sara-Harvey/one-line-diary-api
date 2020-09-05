@@ -6,6 +6,7 @@ class TypesController < ApplicationController
         render json: types
     end
 
+
 	def show
         @type = Type.find(params[:id])
         render json: @type, status: 200
@@ -42,5 +43,5 @@ class TypesController < ApplicationController
     def find_type
         @type = Type.find(params[:id])
     end
-
+=end
 end

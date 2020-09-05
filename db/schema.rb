@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_153601) do
+ActiveRecord::Schema.define(version: 2020_09_05_145226) do
 
   create_table "entries", force: :cascade do |t|
     t.date "date"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_153601) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "type_id"
+    t.index ["type_id"], name: "index_entries_on_type_id"
   end
 
   create_table "entry_types", force: :cascade do |t|
@@ -33,4 +34,5 @@ ActiveRecord::Schema.define(version: 2020_09_03_153601) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "entries", "types"
 end
