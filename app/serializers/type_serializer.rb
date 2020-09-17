@@ -1,5 +1,4 @@
-class TypeSerializer < ActiveModel::Serializer
-  has_many :entries
-
+class TypeSerializer
+  include FastJsonapi::ObjectSerializer
   attributes :name
 end

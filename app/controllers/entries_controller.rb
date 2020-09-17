@@ -3,7 +3,10 @@ class EntriesController < ApplicationController
 
 	def index
 	  entries = Entry.all
-	  render json: entries
+	  options = { 
+	  	include: [:type]
+	  }
+	  render json: EntrySerializer.new(entries)
 	end
 
 	def show

@@ -1,4 +1,8 @@
-class EntrySerializer < ActiveModel::Serializer
+class EntrySerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :date, :content, :type_id, :type 
   belongs_to :type
-  attributes :type_id, :date, :content  
 end
+
+
+
