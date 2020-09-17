@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_145226) do
+ActiveRecord::Schema.define(version: 2020_09_17_192852) do
 
   create_table "entries", force: :cascade do |t|
     t.date "date"
@@ -19,13 +19,6 @@ ActiveRecord::Schema.define(version: 2020_09_05_145226) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "type_id"
     t.index ["type_id"], name: "index_entries_on_type_id"
-  end
-
-  create_table "entry_types", force: :cascade do |t|
-    t.integer "entry_id"
-    t.integer "type_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "types", force: :cascade do |t|

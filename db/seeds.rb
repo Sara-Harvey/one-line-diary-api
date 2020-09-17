@@ -6,15 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+event = Type.create(name: "event")
+quote = Type.create(name: "quote")
 
-Entry.create!(date: "2009-09-01", content: "It was a lazy, hazy, crazy day")
-Entry.create!(date: "2010-08-22", content: "I read a book!")
-Entry.create!(date: "2012-10-13", content: "What about love? Don't you want someone to care about you?")
-Entry.create!(date: "2015-9-28", content: "Hey now, hey now, don't dream it's over.")
-Entry.create!(date: "2020-8-16", content: "I'm doing the best I can.")
-
-Type.create!(name: "quote")
-Type.create!(name: "event")
-Type.create!(name: "people")
-Type.create!(name: "achievement")
-Type.create!(name: "story")
+first_entry = Entry.create(date: "2009-09-01", content: "Lazy, hazy, crazy shade of winter.", type_id: event.id)

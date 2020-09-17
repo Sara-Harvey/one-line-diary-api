@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-before_action :find_entry, only: [:show, :edit, :update, :destroy]
+#before_action :find_entry, only: [:show, :edit, :update, :destroy]
 
 	def index
 	  entries = Entry.all
@@ -13,7 +13,12 @@ before_action :find_entry, only: [:show, :edit, :update, :destroy]
 
 	def create
 	  entry = Entry.create(entry_params)
-	  render json: entry, status: 200 
+	  if Entry.save
+	  	render json: entry, status: :accepted
+	  else
+	  	render json: {errors: entry.errors.full_messages}, status:
+	  	:unprocessible_entity
+	  end
 	end
 
 # necessary @
@@ -32,10 +37,12 @@ before_action :find_entry, only: [:show, :edit, :update, :destroy]
 		render json: entry
 	end
 
+    
     private
 
+
       def entry_params
-        params.permit(:date, :content, :type_id)
+        params.require(:entry).permit(:date, :content, :type_id)
       end
 
 # necessary @

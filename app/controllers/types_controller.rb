@@ -1,5 +1,5 @@
 class TypesController < ApplicationController
-	before_action :find_type, only: [:show, :edit, :update, :destroy]
+	#before_action :find_type, only: [:show, :edit, :update, :destroy]
 	
 	def index
         types = Type.all
@@ -13,8 +13,13 @@ class TypesController < ApplicationController
     end 
 
     def create
-        @type = Type.create(type_params)
-        render json: @type, status: 200
+      entry = Type.create(type_params)
+      if Type.save
+        render json: entry, status: :accepted
+      else
+        render json: {errors: entry.errors.full_messages}, status:
+        :unprocessible_entity
+      end
     end
 
 
@@ -43,5 +48,4 @@ class TypesController < ApplicationController
     def find_type
         @type = Type.find(params[:id])
     end
-=end
 end
