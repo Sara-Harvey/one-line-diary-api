@@ -9,4 +9,4 @@
 event = Type.create(name: "event")
 quote = Type.create(name: "quote")
 
-first_entry = Entry.create(date: "2009-09-01", content: "Lazy, hazy, crazy shade of winter.", type_id: event.id)
+first_entry = Entry.create(date: "2009-09-01", content: "I can do this.", type_id: event.id)
