@@ -22,7 +22,8 @@ gem 'puma', '~> 4.1'
 #gem 'active_model_serializers'
 
 gem 'fast_jsonapi', '~> 1.1', '>= 1.1.1'
-gem 'jsonapi_parameters'
+#gem 'jsonapi_parameters'
+gem 'json_apiable', '~> 0.4.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

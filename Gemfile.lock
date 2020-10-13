@@ -70,9 +70,10 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    jsonapi_parameters (2.2.0)
-      actionpack (>= 4.1.8)
-      activesupport (>= 4.1.8)
+    json_apiable (0.4.1)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
+      fast_jsonapi (~> 1.5)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -156,7 +157,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   fast_jsonapi (~> 1.1, >= 1.1.1)
-  jsonapi_parameters
+  json_apiable (~> 0.4.1)
   listen (~> 3.2)
   puma (~> 4.1)
   rack-cors

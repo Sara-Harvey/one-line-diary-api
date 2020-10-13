@@ -10,25 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_131353) do
+ActiveRecord::Schema.define(version: 2020_10_13_152522) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "entries", force: :cascade do |t|
     t.date "date"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "type_id"
-    t.index ["type_id"], name: "index_entries_on_type_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_entries_on_category_id"
   end
 
   create_table "types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "entry_id"
-    t.index ["entry_id"], name: "index_types_on_entry_id"
   end
 
-  add_foreign_key "entries", "types"
-  add_foreign_key "types", "entries"
+  add_foreign_key "entries", "categories"
 end

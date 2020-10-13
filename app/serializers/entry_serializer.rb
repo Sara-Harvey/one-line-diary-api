@@ -1,7 +1,7 @@
 class EntrySerializer
   include FastJsonapi::ObjectSerializer
-  attributes :date, :content, :type_id, :type 
-  belongs_to :type
+  attributes :date, :content, :category_id, :category 
+  belongs_to :category, serializer: CategorySerializer
 end
 
 

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-event = Type.create(name: "event")
-quote = Type.create(name: "quote")
+event = Category.create(name: "event")
+quote = Category.create(name: "quote")
 
-first_entry = Entry.create(date: "2009-09-01", content: "I can do this.", type_id: event.id)
+first_entry = Entry.create(date: "2009-09-01", content: "I can do this.", category_id: event.id)

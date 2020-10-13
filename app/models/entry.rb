@@ -1,4 +1,4 @@
 class Entry < ApplicationRecord
-  belongs_to :type
-  accepts_nested_attributes_for :type
+  belongs_to :category
+  #accepts_nested_attributes_for :categories
 end
