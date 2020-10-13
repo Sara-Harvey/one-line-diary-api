@@ -30,21 +30,20 @@ class EntriesController < ApplicationController
   end
 
   def update
-    #entry = Entry.find(params[:id])
-    entry = Entry.find_by(id: params[:id])
+    entry = Entry.find(params[:id])
     entry.update(entry_params)
       if entry.save    
          render json: entry, status: 200
       else
-         render json: { errors: entry.errors.full_messages }, status: :unprocessible_entity
+         render json: { errors: entry.errors.full_messages }, status: 
+         :unprocessible_entity
       end
   end
 
   private
 
   def entry_params
-	 params.require(:entry).permit(:id, :type, :date, :content, :category_id) #, :category, 
-	   #:created_at, :updated_at, :_destroy,
-	    #{ category_attributes: [:id, :name, :entry_id, :created_at, :updated_at, :_destroy ]} )
+	 params.permit(:id, :type, :date, :content, :category_id, 
+    { categories_attributes: [:id, :name] })
   end
 end
