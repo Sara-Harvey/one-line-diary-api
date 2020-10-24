@@ -30,9 +30,9 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-	  entry = Entry.find(params[:id])
-	  entry.destroy
-	  render json: entry
+    entry = Entry.find(params[:id])
+    entry.destroy
+    render json: entry
   end
 
   def update
@@ -41,8 +41,8 @@ class EntriesController < ApplicationController
       if entry.save    
          render json: entry, status: 200
       else
-         render json: { errors: entry.errors.full_messages }, status: 
-         :unprocessible_entity
+         render json: { errors: entry.errors.full_messages }, 
+         status: :unprocessible_entity
       end
   end
 
@@ -50,6 +50,6 @@ class EntriesController < ApplicationController
 
   def entry_params
 	 params.permit(:id, :type, :date, :content, :category_id, 
-    { categories_attributes: [:id, :name] })
+    { category_attributes: [:id, :name] })
   end
 end
