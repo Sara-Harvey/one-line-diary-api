@@ -1,5 +1,5 @@
 # README
-See the One-Line Diary frontend repo, here: https://github.com/Sara-Harvey/one-line-diary-frontend.
+The front end files are included in this repo, and are also here: https://github.com/Sara-Harvey/one-line-diary-frontend.
 
 
 The One-Line Diary is super minimal blogging app that lets users call entries by category, and browse the records for several days at a glance.
